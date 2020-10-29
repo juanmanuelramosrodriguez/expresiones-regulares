@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>usuarios</title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div id="app" class="row pt-5">
+
+           
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>creacion de usuario</h4>
+                    </div>
+                    <form id="product-form" class="card-body">
+                        <p>solo poner un nombre</p>
+                        <div class="form-group">
+                            <input type="text" id="nombre" placeholder="@juan" >
+                        </div>
+                        <p>solo poner un apellido</p>
+                        <div class="form-group">
+                            <input type="text" id="apellido"  placeholder="@ramos" >
+                        </div>
+                        <p>La contraseña debe tener mayusculas y caracteres especiales</p>
+                        <div class="form-group">
+                            <input type="text" id="contraseña" placeholder="minimo 12 caracteres">
+                        </div>
+                        <button id="button"onclick='proceso()' >guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    function proceso(){
+        var nombre= document.getElementById("nombre").value;
+        var apellido= document.getElementById("apellido").value;
+        var contraseña=document.getElementById("contraseña").value;
+       /* if(contraseña.length >= 12 && !(/^\d[A-Z]$/.test(contraseña))&& !(/^\d[a-z]$/.test(contraseña)) && !(/^\d[0-9]$/.test(contraseña)) && !(/^\d[!"#$%&/()=?¡'´+{}]$/.test(contraseña))){
+            alert("La contraseña a sido guardada");
+            alert(nombre+" "+apellido + " " + contraseña);
+            console.log(nombre+" "+apellido + " " + contraseña);
+            var salida = true;
+        }else{
+            alert("Contraseña no valida (No tiene mayusculas, No tiene caracteres especiales o no cumplre con el minimo de 12 caracteres)");
+            
+        }*/
+
+        if(contraseña.length >=12){
+            if(!(/^\d[A-Z]$/.test(contraseña))&& !(/^\d[a-z]$/.test(contraseña))){
+                if((/^\d[0-9]$/.test(contraseña)) && (/^\d[!"#$%&/()=?¡'´+{}]$/.test(contraseña))){
+                    alert("la contraseña a guardado los datos");
+                }else{
+                    alert("la contraseña debe de contener numeros y caracteres especiales");
+                }
+
+            }else{
+                alert("la contraseña debe contener letras mayusculas y minisculas");
+            }
+
+        }else{
+            alert("la contraseña debe de tener mas de 12 caracteres");
+        }
+    }
+   
+    
+
+    </script>
+</body>
+
+</html>
